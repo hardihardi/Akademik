@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Ensure PHP 8.1+ support (Optional, depends on cPanel version)
+    # <IfModule mime_module>
+    #   AddHandler application/x-httpd-ea-php81 .php
+    # </IfModule>
+
+    # Force HTTPS (Uncomment if SSL is active)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Redirect all requests to the public/ folder
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^\.env|composer\.json|composer\.lock|php\.ini|spark$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev": "tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch",
+    "build": "tailwindcss -i ./public/css/input.css -o ./public/css/style.css --minify",
+    "watch": "tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  }
+}
